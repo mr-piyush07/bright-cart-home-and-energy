@@ -115,3 +115,8 @@ export async function simulateCheckout(input: CheckoutInput, items: CartItem[]) 
   writeStorage(CART_KEY, []);
   return order;
 }
+
+export async function getLatestOrder() {
+  await pause();
+  return readStorage<Array<{ id: string; date: string; input: CheckoutInput; items: Array<{ product: Product; quantity: number }>; totals: ReturnType<typeof calculateTotals>; paymentStatus: string }>>(ORDERS_KEY, [])[0];
+}
