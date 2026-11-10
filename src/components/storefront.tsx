@@ -58,6 +58,7 @@ export function StoreHeader() {
           <Link to="/products" className="transition-colors hover:text-primary" search={{ category: undefined, q: undefined }}>Shop all</Link>
           <Link to="/products" search={{ category: "detergent" , q: undefined }} className="transition-colors hover:text-primary">Home care</Link>
           <Link to="/products" search={{ category: "water-pumps" , q: undefined }} className="transition-colors hover:text-primary">Pumps & solar</Link>
+          <Link to="/track-order" className="transition-colors hover:text-primary">Track order</Link>
           <Link to="/about" className="transition-colors hover:text-primary">Our story</Link>
         </nav>
         <div className="flex items-center justify-end gap-1">
@@ -72,6 +73,7 @@ export function StoreHeader() {
           <Link to="/products" search={{ category: undefined, q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Shop all</Link>
           <Link to="/products" search={{ category: "detergent", q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Home care</Link>
           <Link to="/products" search={{ category: "water-pumps", q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Pumps &amp; solar</Link>
+          <Link to="/track-order" onClick={() => setMenuOpen(false)} className="p-3">Track order</Link>
           <Link to="/about" onClick={() => setMenuOpen(false)} className="p-3">Our story</Link>
         </nav>
       )}
@@ -83,7 +85,7 @@ export function StoreFooter() {
   return <footer className="mt-20 bg-foreground text-background"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
     <div><Link to="/" className="font-display text-2xl font-semibold">good<span className="text-primary">house</span></Link><p className="mt-4 max-w-xs text-sm leading-6 text-background/65">Everyday essentials, thoughtfully picked. A little better for every home.</p></div>
     <div><p className="text-xs font-semibold uppercase tracking-normal text-background/50">Shop</p><div className="mt-4 grid gap-3 text-sm"><Link to="/products" search={{ category: undefined, q: undefined }}>All products</Link>{categories.map((category) => <Link key={category.id} to="/products" search={{ category: category.id , q: undefined }}>{category.label}</Link>)}</div></div>
-    <div><p className="text-xs font-semibold uppercase tracking-normal text-background/50">Good to know</p><div className="mt-4 grid gap-3 text-sm"><Link to="/about">Our story</Link><Link to="/contact">Contact us</Link><Link to="/cart">Shipping & returns</Link></div></div>
+    <div><p className="text-xs font-semibold uppercase tracking-normal text-background/50">Good to know</p><div className="mt-4 grid gap-3 text-sm"><Link to="/about">Our story</Link><Link to="/track-order">Track order</Link><Link to="/contact">Contact us</Link><Link to="/cart">Shipping & returns</Link></div></div>
     <div><p className="text-xs font-semibold uppercase tracking-normal text-background/50">A little note</p><p className="mt-4 text-sm leading-6 text-background/65">Thoughtful essentials. Fair prices. Delivery that gets there.</p><div className="mt-5 flex items-center gap-2 text-sm"><Check size={16} className="text-primary" /> Safe & secure checkout</div></div>
   </div><div className="border-t border-background/15 px-5 py-5 text-center text-xs text-background/50">© 2026 Good House · Everyday, made better.</div></footer>;
 }
