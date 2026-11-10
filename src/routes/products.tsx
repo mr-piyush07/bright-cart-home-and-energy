@@ -10,8 +10,8 @@ import { categories, listProducts, products, type CategoryId, type Product } fro
 
 export const Route = createFileRoute("/products")({
   validateSearch: (search: Record<string, unknown>) => ({
-    category: typeof search.category === "string" ? search.category : undefined,
-    q: typeof search.q === "string" ? search.q : undefined,
+    category: typeof search["category"] === "string" ? search["category"] : undefined,
+    q: typeof search["q"] === "string" ? search["q"] : undefined,
   }),
   head: () => ({ meta: [
     { title: "Shop all home essentials — Good House" },
@@ -37,7 +37,7 @@ function ProductsPage() {
   useEffect(() => { setQuery(search.q ?? ""); }, [search.q]);
   useEffect(() => {
     let alive = true;
-    void listProducts({ category: selectedCategory, query, maxPrice, minRating: ratingOnly ? 4.5 : undefined, inStock: inStockOnly, sort }).then((result) => { if (alive) setItems(result); });
+    void listProducts({ category: selectedCategory, query, maxPrice, ...(ratingOnly ? { minRating: 4.5 } : {}), inStock: inStockOnly, sort }).then((result) => { if (alive) setItems(result); });
     return () => { alive = false; };
   }, [selectedCategory, query, maxPrice, ratingOnly, inStockOnly, sort]);
   const activeLabel = selectedCategory === "all" ? "All essentials" : categories.find((item) => item.id === selectedCategory)?.label ?? "All essentials";
