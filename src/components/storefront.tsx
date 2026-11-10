@@ -106,7 +106,7 @@ export function ProductCard({ product, onQuickView }: { product: Product; onQuic
 }
 
 export function ProductGrid({ items, onQuickView }: { items: Product[]; onQuickView?: (product: Product) => void }) {
-  return <div className="grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4 lg:gap-x-6">{items.map((product) => <ProductCard key={product.id} product={product} onQuickView={onQuickView} />)}</div>;
+  return <div className="grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4 lg:gap-x-6">{items.map((product) => <ProductCard key={product.id} product={product} {...(onQuickView ? { onQuickView } : {})} />)}</div>;
 }
 
 export function QuickView({ product, open, onOpenChange }: { product: Product | null; open: boolean; onOpenChange: (open: boolean) => void }) {
