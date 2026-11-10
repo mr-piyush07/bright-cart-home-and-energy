@@ -31,4 +31,4 @@ use the editor.
 
 ## Project architecture
 
-- Keep storefront catalog and shopping flows frontend-only, using static fixtures and mock services until a real commerce backend is requested; this preserves the requested no-backend scope.
+- Keep storefront catalog, shopping, and shipment-tracking flows frontend-only, using static fixtures and mock services until a real commerce backend is requested; this preserves the requested no-backend scope.
