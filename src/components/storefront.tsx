@@ -67,7 +67,14 @@ export function StoreHeader() {
           <Link to="/contact" className="hidden rounded-full bg-secondary px-4 py-2 text-xs font-semibold sm:inline-flex">Get in touch</Link>
         </div>
       </div>
-      {menuOpen && <nav className="grid gap-1 border-t border-border px-5 py-3 sm:hidden"><Link to="/products" onClick={() = search={{ category: undefined, q: undefined }}> setMenuOpen(false)} className="p-3">Shop all</Link><Link to="/products" search={{ category: "detergent" , q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Home care</Link><Link to="/products" search={{ category: "water-pumps" , q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Pumps & solar</Link><Link to="/about" onClick={() => setMenuOpen(false)} className="p-3">Our story</Link></nav>}
+      {menuOpen && (
+        <nav className="grid gap-1 border-t border-border px-5 py-3 sm:hidden">
+          <Link to="/products" search={{ category: undefined, q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Shop all</Link>
+          <Link to="/products" search={{ category: "detergent", q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Home care</Link>
+          <Link to="/products" search={{ category: "water-pumps", q: undefined }} onClick={() => setMenuOpen(false)} className="p-3">Pumps &amp; solar</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)} className="p-3">Our story</Link>
+        </nav>
+      )}
     </header>
   </>;
 }
